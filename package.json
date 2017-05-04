@@ -11,6 +11,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
   "dependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -18,10 +30,15 @@
     "babel-preset-react": "^6.24.1",
     "express": "^4.15.2",
     "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
     "neo4j": "^2.0.0-RC2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "transform-loader": "^0.2.4",
     "webpack": "^2.4.1",
     "webpack-dev-middleware": "^1.10.2"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0"
   }
 }

@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
@@ -22,4 +22,19 @@ const server = app.listen(3000, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
+});*/
+
+var browserify = require('browserify-middleware');
+var express = require('express');
+var app = express();
+
+app.use(express.static(__dirname + '/www'));
+
+app.get('/bundle.js', browserify('./src/main.js'));
+
+app.get('/', function(req, res){
+  res.render('index.js');
 });
+
+app.listen(3000);
+console.log('Listening on port 3000');
